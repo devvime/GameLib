@@ -7,6 +7,7 @@ from src.engine.camera import camera
 class Game:
     def __init__(self):        
         init_window(WIDTH, HEIGHT, GAME_TITLE)
+        set_exit_key(0)
         set_target_fps(60)
         init_audio_device()
         

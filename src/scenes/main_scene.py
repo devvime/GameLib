@@ -16,7 +16,7 @@ class MainScene:
         pass
     
     def button(self):
-        play_button = Button(300, 220, 200, 50, "JOGAR")
+        play_button = Button(300, 220, 200, 50, "JOGAR", text_x=370, text_y=235)
         
         if play_button.draw():
             self.game.set_scene(self.game.scenes["game"])
