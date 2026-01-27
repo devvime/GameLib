@@ -12,31 +12,39 @@ class Game:
         init_audio_device()        
         init_scenes(self)        
         self.set_scene("main")
+        self.paused = False
+        
+    def pause(self):
+        self.paused = True
+        
+    def resume(self):
+        self.paused = False
         
     def set_scene(self, scene):
         self.current_scene = self.scenes[scene]
         self.current_scene.create()
         
     def update(self):
-        dt = get_frame_time()
-        self.current_scene.update(dt)
+        if not self.paused:            
+            dt = get_frame_time()
+            self.current_scene.update(dt)
         
     def draw(self):
         clear_background(BG_COLOR)        
         begin_drawing()
         self.current_scene.draw_2d()
         begin_mode_3d(camera)
-        self.current_scene.draw_3d()      
-        end_mode_3d()        
+        self.current_scene.draw_3d()
+        end_mode_3d()
         end_drawing()
         
     async def run(self):
         while not window_should_close():
             if is_key_pressed(KEY_F11):
                 toggle_fullscreen()
-                
-            self.update()
-            self.draw()
+            if not self.paused:    
+                self.update()
+                self.draw()
             await asyncio.sleep(0) 
         close_audio_device()
         close_window()
