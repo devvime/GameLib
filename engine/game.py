@@ -2,21 +2,20 @@ from src.settings import *
 import asyncio
 
 from src.init_scenes import init_scenes
-from src.engine.camera import camera
+from engine.camera import camera
 
 class Game:
     def __init__(self):        
         init_window(WIDTH, HEIGHT, GAME_TITLE)
         set_exit_key(0)
         set_target_fps(60)
-        init_audio_device()
-        
-        init_scenes(self)
-        
-        self.current_scene = self.scenes["main"]
+        init_audio_device()        
+        init_scenes(self)        
+        self.set_scene("main")
         
     def set_scene(self, scene):
-        self.current_scene = scene
+        self.current_scene = self.scenes[scene]
+        self.current_scene.create()
         
     def update(self):
         dt = get_frame_time()

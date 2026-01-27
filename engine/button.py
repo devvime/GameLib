@@ -4,8 +4,8 @@ class Button:
     def __init__(self, x, y, w, h, text, text_x = None, text_y = None, text_color = BLACK, font_size = 20, color = LIGHTGRAY, hover_color = GRAY):
         self.rect = Rectangle(x, y, w, h)
         self.text = text
-        self.text_x = self.rect.x + 20 if text_x is None else text_x
-        self.text_y = self.rect.y + 15 if text_y is None else text_y
+        self.text_x = self.rect.x + 20 if text_x is None else self.rect.x + text_x
+        self.text_y = self.rect.y + 15 if text_y is None else self.rect.y + text_y
         self.text_color = text_color
         self.font_size = font_size
         self.color = color

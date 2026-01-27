@@ -1,4 +1,4 @@
-from src.engine.game import Game
+from engine.game import Game
 import asyncio
         
 if __name__ == '__main__':

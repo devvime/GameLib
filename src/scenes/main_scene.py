@@ -1,13 +1,16 @@
 from src.settings import *
-from src.engine.button import Button
+from engine.button import Button
 
 class MainScene:
     def __init__(self, game):
         self.game = game
+        
+    def create(self):
+        print("Main scene created!")
     
     def draw_2d(self):
-        draw_text("Hello world", 335, 150, 20, VIOLET)
-        self.button()        
+        draw_text("Hello world", 580, 290, 20, VIOLET)
+        self.button()
     
     def draw_3d(self):
         pass
@@ -16,7 +19,7 @@ class MainScene:
         pass
     
     def button(self):
-        play_button = Button(300, 220, 200, 50, "JOGAR", text_x=370, text_y=235)
+        play_button = Button(x=540, y=330, w=200, h=50, text="JOGAR", text_x=65, text_y=15)
         
         if play_button.draw():
-            self.game.set_scene(self.game.scenes["game"])
+            self.game.set_scene("game")
