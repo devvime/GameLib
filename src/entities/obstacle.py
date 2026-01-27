@@ -8,6 +8,7 @@ class Obstacle(Entity):
         self.position = position
         self.scale = scale
         self.color = color
+        self.tags["floor"] = True
         self.model = load_model_from_mesh(gen_mesh_cube(self.scale.x, self.scale.y, self.scale.z))
         
     def draw(self):

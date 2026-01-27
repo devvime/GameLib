@@ -3,6 +3,7 @@ from raylib import *
 
 class Entity:
     def __init__(self):
+        self.tags = { "floor": False }
         self.model = None
         self.position = Vector3()
         self.direction = Vector3()

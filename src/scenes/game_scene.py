@@ -1,17 +1,22 @@
 from src.settings import *
+from engine.scene import Scene
+from engine.gravity import set_gravity
 from src.entities.ship import Ship
 from src.entities.player import Player
 from src.entities.obstacle import Obstacle
 
-class GameScene:
+class GameScene(Scene):
     def __init__(self, game):
-        self.game = game
+        super().__init__(game)
         
     def create(self):
         # self.ship = Ship()
         self.player = Player(self)
-        self.obstacle = Obstacle(position=Vector3(3, 0, 0), scale=Vector3(2, 1, 4), color=DARKGRAY)
-        self.ground = Obstacle(position=Vector3(0, -1, 0), scale=Vector3(10, 1, 10))
+        self.objects3d = [
+            Obstacle(position=Vector3(3, 0, 0), scale=Vector3(2, 1, 2), color=DARKGRAY),
+            Obstacle(position=Vector3(0, -1, 0), scale=Vector3(10, 1, 10)),
+            Obstacle(position=Vector3(9, -1, 0), scale=Vector3(5, 1, 5))
+        ]
     
     def draw_2d(self):
         ...
@@ -20,14 +25,15 @@ class GameScene:
         draw_grid(10, 0.5)
         # self.ship.draw()
         self.player.draw()
-        self.obstacle.draw()
-        self.ground.draw()
+        
+        for ob in self.objects3d:
+            ob.draw()
     
     def update(self, dt):
+        set_gravity(self.player, self.objects3d, dt)
+        
         if is_key_pressed(KEY_ESCAPE):
             self.game.set_scene("main")
             
         # self.ship.update(dt)
         self.player.update(dt)
-        self.obstacle.update(dt)
-        self.obstacle.update(dt)

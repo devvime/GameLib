@@ -2,7 +2,6 @@ from pyray import *
 from raylib import *
 from engine.entity import Entity
 from engine.collision import check_collision
-from engine.gravity import set_gravity
 
 class Player(Entity):
     def __init__(self, scene):
@@ -16,16 +15,14 @@ class Player(Entity):
     def draw(self):
         draw_model(self.model, self.position, 1, RED)
         
-    def update(self, dt):
-        set_gravity(self, [self.scene.ground], dt)
-        
+    def update(self, dt):        
         self.direction.x = int(is_key_down(KEY_D)) - int(is_key_down(KEY_A))
         self.direction.z = int(is_key_down(KEY_S)) - int(is_key_down(KEY_W))
         
         self.position.x += self.direction.x * dt * self.speed
-        check_collision(self, self.scene.obstacle, 'x')
+        check_collision(self, self.scene.objects3d, 'x')
         self.position.z += self.direction.z * dt * self.speed
-        check_collision(self, self.scene.obstacle, 'z')
+        check_collision(self, self.scene.objects3d, 'z')
         
         self.jump()
         
