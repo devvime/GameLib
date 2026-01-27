@@ -19,7 +19,11 @@ class MainScene:
         pass
     
     def button(self):
-        play_button = Button(x=540, y=330, w=200, h=50, text="JOGAR", text_x=65, text_y=15)
+        play_button = Button(x=540, y=330, w=200, h=50, text="Play", text_x=77, text_y=15)
+        exit_button = Button(x=540, y=390, w=200, h=50, text="Exit", text_x=77, text_y=15)
         
         if play_button.draw():
             self.game.set_scene("game")
+            
+        if exit_button.draw():
+            self.game.close()

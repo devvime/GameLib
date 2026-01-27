@@ -32,6 +32,7 @@ class Game:
     def draw(self):
         clear_background(BG_COLOR)        
         begin_drawing()
+        if DEBUG: draw_fps(10, 10)
         self.current_scene.draw_2d()
         begin_mode_3d(camera)
         self.current_scene.draw_3d()
@@ -46,5 +47,9 @@ class Game:
                 self.update()
                 self.draw()
             await asyncio.sleep(0) 
+        close_audio_device()
+        close_window()
+        
+    def close():
         close_audio_device()
         close_window()

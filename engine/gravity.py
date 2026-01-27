@@ -1,6 +1,6 @@
 from pyray import *
 from raylib import *
-from engine.collision import get_bbox, check_collision
+from engine.collision import get_bbox
 from src.settings import GRAVITY
 
 def set_gravity(entity, obstacles, dt):
@@ -14,9 +14,6 @@ def set_gravity(entity, obstacles, dt):
                 
             entity.velocity.y = 0
             entity.is_grounded = True
-            
-        # check_collision(entity, obstacle, 'x')
-        # check_collision(entity, obstacle, 'z')
         
     entity.is_grounded = False    
     if entity.velocity.y == 0:
