@@ -3,8 +3,8 @@ from raylib import *
 from engine.entity import Entity
 
 class Obstacle(Entity):
-    def __init__(self, position = Vector3(), scale = Vector3(1, 1, 1), color=GRAY):
-        super().__init__()
+    def __init__(self, scene, position = Vector3(), scale = Vector3(1, 1, 1), color=GRAY):
+        super().__init__(scene)
         self.position = position
         self.scale = scale
         self.color = color

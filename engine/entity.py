@@ -2,7 +2,8 @@ from pyray import *
 from raylib import *
 
 class Entity:
-    def __init__(self):
+    def __init__(self, scene):
+        self.scene = scene
         self.tags = { "floor": False }
         self.model = None
         self.position = Vector3()

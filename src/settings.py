@@ -2,6 +2,7 @@ from pyray import *
 from raylib import *
 
 DEBUG = True
+EDITOR_MODE = False
 WIDTH = 1280
 HEIGHT = 720
 BG_COLOR = WHITE

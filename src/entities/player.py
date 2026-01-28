@@ -5,12 +5,12 @@ from engine.collision import check_collision
 
 class Player(Entity):
     def __init__(self, scene):
-        super().__init__()
-        self.scene = scene
+        super().__init__(scene)
         self.model = load_model_from_mesh(gen_mesh_cube(1, 1, 1))
         self.speed = 5
         self.fall_speed = 2
         self.jump_force = 7
+        self.position = Vector3(0,2,0)
         
     def draw(self):
         draw_model(self.model, self.position, 1, RED)

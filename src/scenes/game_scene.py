@@ -10,12 +10,13 @@ class GameScene(Scene):
         super().__init__(game)
         
     def create(self):
-        # self.ship = Ship()
+        self.ship = Ship(self)
         self.player = Player(self)
         self.objects3d = [
-            Obstacle(position=Vector3(3, 0, 0), scale=Vector3(2, 1, 2), color=DARKGRAY),
-            Obstacle(position=Vector3(0, -1, 0), scale=Vector3(10, 1, 10)),
-            Obstacle(position=Vector3(9, -1, 0), scale=Vector3(5, 1, 5))
+            Obstacle(self, position=Vector3(3, 2, 0), scale=Vector3(2, 1, 4), color=DARKGRAY),
+            Obstacle(self, position=Vector3(0, 1, 0), scale=Vector3(10, 1, 10)),
+            Obstacle(self, position=Vector3(9, 1, 0), scale=Vector3(5, 1, 5)),
+            self.ship
         ]
     
     def draw_2d(self):
@@ -23,7 +24,7 @@ class GameScene(Scene):
     
     def draw_3d(self):
         draw_grid(10, 0.5)
-        # self.ship.draw()
+        self.ship.draw()
         self.player.draw()
         
         for ob in self.objects3d:
