@@ -35,10 +35,17 @@ class Game:
     def draw(self):
         clear_background(BG_COLOR)
         begin_drawing()
-        if DEBUG: draw_fps(10, 10)
+        
+        if DEBUG:
+            draw_text(f"FPS: {get_fps()}", 10, 10, 20, GREEN)
+            draw_text(f"Frame Time: {get_frame_time():.4f}", 10, 35, 20, BLUE)
+            
         self.current_scene.draw_2d()
+        
         begin_mode_3d(camera)
+        
         self.current_scene.draw_3d()
+        
         end_mode_3d()
         end_drawing()
         

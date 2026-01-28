@@ -8,12 +8,12 @@ class Scene:
         ...
         
     def draw_2d(self):
-        for ob in self.objects2d:
-            ob.draw()
+        for obj in self.objects2d:
+            obj.draw()
         
     def draw_3d(self):
-        for ob in self.objects3d:
-            ob.draw()
+        for obj in self.objects3d:
+            obj.draw()
         
     def update(self, dt):
         ...

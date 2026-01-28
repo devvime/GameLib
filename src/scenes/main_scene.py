@@ -1,22 +1,25 @@
 from src.settings import *
+from engine.scene import Scene
 from engine.button import Button
 
-class MainScene:
+class MainScene(Scene):
     def __init__(self, game):
-        self.game = game
+        super().__init__(game)
         
     def create(self):
-        print("Main scene created!")
+        super().create()
     
     def draw_2d(self):
+        super().draw_2d()
+        
         draw_text("Hello world", 580, 290, 20, VIOLET)
         self.button()
     
     def draw_3d(self):
-        pass
+        super().draw_3d()
     
     def update(self, dt):
-        pass
+        super().update(dt)
     
     def button(self):
         play_button = Button(x=540, y=330, w=200, h=50, text="Play", text_x=77, text_y=15)

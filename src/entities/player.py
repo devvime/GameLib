@@ -16,6 +16,10 @@ class Player(Entity):
         draw_model(self.model, self.position, 1, RED)
         
     def update(self, dt):        
+        self.movement(dt)        
+        self.jump()
+        
+    def movement(self, dt):
         self.direction.x = int(is_key_down(KEY_D)) - int(is_key_down(KEY_A))
         self.direction.z = int(is_key_down(KEY_S)) - int(is_key_down(KEY_W))
         
@@ -23,8 +27,6 @@ class Player(Entity):
         check_collision(self, self.scene.objects3d, 'x')
         self.position.z += self.direction.z * dt * self.speed
         check_collision(self, self.scene.objects3d, 'z')
-        
-        self.jump()
         
     def jump(self):
         if self.is_grounded and is_key_down(KEY_SPACE):
