@@ -1,0 +1,17 @@
+from pyray import *
+from raylib import *
+from os.path import join
+from engine.entity import Entity
+
+class PlayerTest(Entity):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.model = load_model(join("assets", "models", "player.glb"))
+        self.position = Vector3(0, 1, 0)
+        
+        
+    def draw(self):
+        draw_model(self.model, self.position, 1, WHITE)
+        
+    def update(self, dt):
+        ...
