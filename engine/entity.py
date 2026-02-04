@@ -10,3 +10,6 @@ class Entity:
         self.direction = Vector3()
         self.velocity = Vector3()
         self.is_grounded = False
+        
+    def destroy(self):
+        unload_model(self.model)
