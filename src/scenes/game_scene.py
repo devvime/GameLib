@@ -3,7 +3,7 @@ from engine.scene import Scene
 from engine.gravity import set_gravity
 from src.entities.player import Player
 from src.entities.obstacle import Obstacle
-from src.entities.player_test import PlayerTest
+from src.entities.player_skin import PlayerSkin
 
 class GameScene(Scene):
     def __init__(self, game):
@@ -13,7 +13,7 @@ class GameScene(Scene):
         super().create()
         
         self.player = Player(self)
-        self.player_test = PlayerTest(self)
+        self.player_skin = PlayerSkin(self)
         self.objects3d = [
             Obstacle(self, position=Vector3(3, 1.5, 0), scale=Vector3(2, 1, 4), color=DARKGRAY),
             Obstacle(self, position=Vector3(0, 0.5, 0), scale=Vector3(10, 1, 10)),
@@ -28,7 +28,7 @@ class GameScene(Scene):
         
         draw_grid(10, 0.5)
         self.player.draw()
-        self.player_test.draw()
+        self.player_skin.draw()
     
     def update(self, dt):
         super().update(dt)
@@ -39,4 +39,4 @@ class GameScene(Scene):
             self.game.set_scene("main")
             
         self.player.update(dt)
-        self.player_test.update(dt)
+        self.player_skin.update(dt)
