@@ -3,6 +3,7 @@ from raylib import *
 from engine.entity import Entity
 from engine.collision import check_collision
 from src.entities.player_skin import PlayerSkin
+from engine.camera_follow import CameraFollow
 
 class Player(Entity):
     def __init__(self, scene):
@@ -23,6 +24,7 @@ class Player(Entity):
         self.movement(dt)        
         self.jump()
         self.player_skin.update(dt)
+        CameraFollow(self)
 
 
     def movement(self, dt):

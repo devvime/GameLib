@@ -9,7 +9,7 @@ class PlayerSkin(Entity):
         super().__init__(scene)
         self.model = load_model(join("assets", "models", "robot.glb"))
         self.position = Vector3(0, 1, 0)
-        self.animator = Animator(self.model, join("assets", "models", "robot.glb"))        
+        self.animator = Animator(self.model, join("assets", "models", "robot.glb"))
         self.animator.change_action(2)
         self.rotate_y = 0
 
@@ -32,10 +32,10 @@ class PlayerSkin(Entity):
                 self.rotate_y = -2.3
                 self.animator.action = 6
             elif is_key_down(KEY_S) and is_key_down(KEY_D):
-                self.rotate_y = 1.15
+                self.rotate_y = 1
                 self.animator.action = 6
             elif is_key_down(KEY_S) and is_key_down(KEY_A):
-                self.rotate_y = -1.15
+                self.rotate_y = -1
                 self.animator.action = 6
             
             elif is_key_down(KEY_W):
