@@ -1,5 +1,7 @@
-from src.settings import * 
 import asyncio
+from pyray import *
+from raylib import *
+from src.settings import * 
 
 from src.init_scenes import init_scenes
 from engine.camera import camera

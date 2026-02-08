@@ -1,3 +1,5 @@
+from raylib import *
+from pyray import *
 from src.settings import *
 from engine.scene import Scene
 from engine.gravity import set_gravity

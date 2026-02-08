@@ -1,3 +1,5 @@
+from pyray import *
+from raylib import *
 from src.settings import * 
 
 class Button:

@@ -1,4 +1,3 @@
-from pyray import *
 from raylib import *
 
 DEBUG = True

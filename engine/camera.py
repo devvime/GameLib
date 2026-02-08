@@ -1,3 +1,5 @@
+from raylib import *
+from pyray import *
 from src.settings import * 
 
 camera = Camera3D()
