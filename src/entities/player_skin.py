@@ -8,7 +8,7 @@ class PlayerSkin(Entity):
     def __init__(self, scene):
         super().__init__(scene)
         self.model = load_model(join("assets", "models", "robot.glb"))
-        self.position = Vector3(0, 1, 0)
+        self.position = Vector3(0, 0, 0)
         self.animator = Animator(self.model, join("assets", "models", "robot.glb"))
         self.animator.change_action(2)
         self.rotate_y = 0
@@ -49,11 +49,12 @@ class PlayerSkin(Entity):
                 self.animator.action = 6                
             elif is_key_down(KEY_D):
                 self.rotate_y = 1.6
-                self.animator.action = 6                
+                self.animator.action = 6
             if is_key_pressed(KEY_SPACE):
                 self.animator.action = 3
 
 
     def update(self, dt):
-        self.position = self.scene.player.position
+        target_pos = self.scene.player.position
+        self.position = Vector3(target_pos.x, target_pos.y - 0.5, target_pos.z)
         self.animate(dt)

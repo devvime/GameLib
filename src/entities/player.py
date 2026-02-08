@@ -19,7 +19,8 @@ class Player(Entity):
     def draw(self):
         draw_model_wires(self.model, self.position, 1, RED)
         self.player_skin.draw()
-        
+
+
     def update(self, dt):        
         self.movement(dt)        
         self.jump()

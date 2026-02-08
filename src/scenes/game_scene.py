@@ -7,7 +7,8 @@ from src.entities.obstacle import Obstacle
 class GameScene(Scene):
     def __init__(self, game):
         super().__init__(game)
-        
+
+
     def create(self):
         super().create()
         
@@ -20,13 +21,15 @@ class GameScene(Scene):
     
     def draw_2d(self):
         super().draw_2d()
-    
+
+
     def draw_3d(self):
         super().draw_3d()
         
-        draw_grid(10, 0.5)
+        # draw_grid(10, 0.5)
         self.player.draw()
-    
+
+
     def update(self, dt):
         super().update(dt)
         

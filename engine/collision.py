@@ -7,6 +7,7 @@ def get_bbox(entity):
     max_boundary = Vector3Add(entity.position, bbox.max)
     return BoundingBox(min_boundary, max_boundary)
 
+
 def check_collision(entity, obstacles, axis):
     entity_bbox = get_bbox(entity)    
     for obs in obstacles:        

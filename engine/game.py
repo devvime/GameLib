@@ -15,23 +15,28 @@ class Game:
         self.set_scene("main")
         self.paused = False
         self.editor_mode = EDITOR_MODE
-        
+
+
     def pause(self):
         self.paused = True
-        
+
+
     def resume(self):
         self.paused = False
-        
+
+
     def set_scene(self, scene):
         self.current_scene = self.scenes[scene]
         self.current_scene.create()
-        
+
+
     def update(self):
         if not self.paused:            
             dt = get_frame_time()
             if not self.editor_mode: 
                 self.current_scene.update(dt)
-        
+
+
     def draw(self):
         clear_background(BG_COLOR)
         begin_drawing()
@@ -48,7 +53,8 @@ class Game:
         
         end_mode_3d()
         end_drawing()
-        
+
+
     async def run(self):
         while not window_should_close():
             if is_key_pressed(KEY_F1):
@@ -66,11 +72,12 @@ class Game:
             await asyncio.sleep(0) 
         close_audio_device()
         close_window()
-        
+
+
     def close(self):
         close_audio_device()
         close_window()
-        
+
+
     def set_editor_mode(self):
         self.editor_mode = not self.editor_mode
-        print(self.editor_mode)
